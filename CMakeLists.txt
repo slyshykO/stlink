@@ -5,7 +5,7 @@ set(PROJECT_DESCRIPTION "Open source version of the STMicroelectronics Stlink To
 set(STLINK_UDEV_RULES_DIR "/etc/udev/rules.d" CACHE PATH "Udev rules directory")
 set(STLINK_MODPROBED_DIR "/etc/modprobe.d" CACHE PATH "modprobe.d directory")
 
-if( IS_DIRECTORY LIB_INSTALL_DIR)
+if( IS_DIRECTORY ${LIB_INSTALL_DIR})
     set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR} CACHE PATH "Main library directory")
     set(STLINK_LIBRARY_PATH "${LIB_INSTALL_DIR}" CACHE PATH "Target lib directory")
 else()
@@ -13,7 +13,7 @@ else()
     set(STLINK_LIBRARY_PATH "${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}" CACHE PATH "Target lib directory")
 endif()
 
-if( IS_DIRECTORY INCLUDE_INSTALL_DIR)
+if( IS_DIRECTORY ${INCLUDE_INSTALL_DIR})
     set(INCLUDE_INSTALL_DIR ${INCLUDE_INSTALL_DIR} CACHE PATH "Main include directory")
     set(STLINK_INCLUDE_PATH "${INCLUDE_INSTALL_DIR}" CACHE PATH "Target include directory")
 else()
