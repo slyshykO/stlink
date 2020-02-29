@@ -1,10 +1,14 @@
 #!/bin/bash
 
+DIR=$PWD
+
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then
 	echo $PWD
-	mkdir -p build/linux-mingw32-release
-	echo $PWD
-	cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=./cmake/linux-mingw32.cmake -S . -B ./build/linux-mingw32-release
-	cmake --build ./build/linux-mingw32-release --target all
+	echo "DIR=$DIR"
+	mkdir -p $DIR/build/linux-mingw32-release
+	echo "cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=./cmake/linux-mingw32.cmake -S $DIR -B $DIR/build/linux-mingw32-release"
+	cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=./cmake/linux-mingw32.cmake -S $DIR -B $DIR/build/linux-mingw32-release
+	echo "cmake --build $DIR/build/linux-mingw32-release --target all"
+	cmake --build $DIR/build/linux-mingw32-release --target all
 fi
 
