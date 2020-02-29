@@ -3,6 +3,8 @@
 DIR=$PWD
 
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+	p7zip --help
+
 	echo $PWD
 	echo "DIR=$DIR"
 	mkdir -p $DIR/build/linux-mingw32-release
