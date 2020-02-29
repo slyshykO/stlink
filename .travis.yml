@@ -25,5 +25,5 @@ script:
   - git fetch --tags
   - printenv
   - cmake --version
-  - ./.travis.sh
+  - echo ./.travis.sh
   - ./.travis-lin-mingw.sh
