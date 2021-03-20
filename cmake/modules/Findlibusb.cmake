@@ -91,7 +91,8 @@ elseif (WIN32 OR (EXISTS "/etc/debian_version" AND MINGW))                      
         else ()                                 # ... download the package
             message(STATUS "downloading libusb ${LIBUSB_WIN_VERSION}")
             file(DOWNLOAD
-                https://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-${LIBUSB_WIN_VERSION}/libusb-${LIBUSB_WIN_VERSION}.7z/download
+#                https://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-${LIBUSB_WIN_VERSION}/libusb-${LIBUSB_WIN_VERSION}.7z/download
+                https://github.com/libusb/libusb/releases/download/v${LIBUSB_WIN_VERSION}/${LIBUSB_WIN_ARCHIVE}
                 ${LIBUSB_WIN_ARCHIVE_PATH} EXPECTED_MD5 5c944b1c8aa9d43e026a94302d0f8ac4
                 )
         endif ()
@@ -117,7 +118,7 @@ elseif (WIN32 OR (EXISTS "/etc/debian_version" AND MINGW))                      
             set(LIBUSB_NAME usb-1.0)
             find_library(
                 LIBUSB_LIBRARY NAMES ${LIBUSB_NAME}
-                HINTS ${LIBUSB_WIN_OUTPUT_FOLDER}/MinGW${ARCH}/static
+                HINTS ${LIBUSB_WIN_OUTPUT_FOLDER}/MinGW${ARCH}/dll
                 NO_DEFAULT_PATH
                 NO_CMAKE_FIND_ROOT_PATH
                 )
